@@ -1,0 +1,56 @@
+<?php
+
+namespace App\Http\Controllers;
+
+use Illuminate\Http\Request;
+use App\Models\Movie;
+
+class MovieController extends Controller
+{
+    public function index(Request $request){
+        return Movie::all();
+    }
+    public function create(Request $request)
+    {
+
+        $movie = Movie::create([
+       'title'=> $request->title,
+       'synopsis'=> $request->synopsis,
+       'year'=> $request->year,
+       'cover'=> $request->cover,
+        ]);
+
+        return response()->json([
+            'message'=> 'Movie created',
+            'movie' => $movie,
+        ]);
+    }
+
+    public function update(Request $request, $id)
+    {
+        $movie = Movie::findOrFail($id);
+
+        $movie->update([
+            'title'=> $request->title,
+            'synopsis'=> $request->synopsis,
+            'year'=> $request->year,
+            'cover'=> $request->cover,
+        ]);
+
+        return response()->json([
+            'message'=> 'Pelicula actualizada',
+            'movie' => $movie,
+        ]);
+    }
+
+    public function destroy(Request $request, $id)
+    {
+        $movie = Movie::findOrFail($id);
+
+        $movie->delete();
+
+        return response()->json([
+            'message'=> 'Pelicula eliminada',
+        ]);
+    }
+}
