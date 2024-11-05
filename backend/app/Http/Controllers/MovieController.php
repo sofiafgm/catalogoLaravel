@@ -8,7 +8,9 @@ use App\Models\Movie;
 class MovieController extends Controller
 {
     public function index(Request $request){
-        return Movie::all();
+        $movies = Movie::all();
+        return response()->json($movies);
+
     }
     public function create(Request $request)
     {
@@ -21,9 +23,13 @@ class MovieController extends Controller
         ]);
 
         return response()->json([
-            'message'=> 'Movie created',
+            'message'=> 'Pelicula agregada',
             'movie' => $movie,
         ]);
+    }
+    public function detail(Request $request, $id){
+        $movie = Movie::findOrFail($id);        
+        return response()->json($movie);
     }
 
     public function update(Request $request, $id)

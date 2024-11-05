@@ -3,7 +3,6 @@
 use App\Http\Controllers\MovieController;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Route;
-use App\Models\Movie;
 
 /*
 |--------------------------------------------------------------------------
@@ -18,6 +17,7 @@ use App\Models\Movie;
 
 Route::get('/movies',[MovieController::class,'index']);
 Route::post('/movies', [MovieController::class, 'create']);
+Route::get('movies/{id}', [MovieController::class,'detail']);
 Route::put('movies/{id}', [MovieController::class, 'update']);
 Route::delete('movies/{id}', [MovieController::class,'destroy']);
 
