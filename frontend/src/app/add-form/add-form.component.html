@@ -1,0 +1,49 @@
+<div class="container-fluid bg-dark min-vh-100 py-5">
+  <div class="container">
+    <div class="row justify-content-center">
+      <div class="col-md-8 col-lg-6">
+        <div class="card bg-dark border-light">
+          <div class="card-body p-4">
+            <h1 class="display-6 text-light fw-bold mb-3">
+              {{ newMovie.id ? 'Edit Movie' : 'Add New Movie' }}
+            </h1>
+            <p class="text-light-emphasis mb-4">
+              {{ newMovie.id ? 'Update the movie information' : 'Enter the movie details' }}
+            </p>
+            
+            <form (ngSubmit)="addMovie()">
+              <div class="form-group mb-4">
+                <label for="title" class="form-label">Titulo</label>
+                <input type="text" class="form-control" id="title" [(ngModel)]="newMovie.title" name="title" required>
+              </div>
+             
+              <div class="form-group mb-4">
+                <label for="synopsis" class="form-label">Sinopsis</label>
+                <textarea class="form-control" id="synopsis" [(ngModel)]="newMovie.synopsis" name="synopsis" required rows="3"></textarea>
+              </div>
+             
+              <div class="form-group mb-4">
+                <label for="year" class="form-label">Año</label>
+                <input type="number" class="form-control" id="year" [(ngModel)]="newMovie.year" name="year" required>
+              </div>
+ 
+              <div class="form-group mb-5">
+                <label for="cover" class="form-label">Cubierta</label>
+                <input type="text" class="form-control" id="cover" [(ngModel)]="newMovie.cover" name="cover" required>
+              </div>
+
+              <div class="d-grid gap-3 d-md-flex justify-content-md-end">
+                <a type="button" class="btn btn-outline-light btn-lg mx-2 my-3" href="/">
+                  <i class="bi bi-x-circle me-2"></i>Cancelar
+                </a>
+                <button type="submit" class="btn btn-primary btn-lg mx-2 my-3">
+                  <i class="bi bi-plus-circle me-2"></i>{{ newMovie.id ? 'Editar' : 'Agregar' }}
+                </button>
+              </div>
+            </form>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>      

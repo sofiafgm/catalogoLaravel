@@ -1,0 +1,76 @@
+<div class="container-fluid bg-dark min-vh-100 py-5">
+  <div class="container">
+    <!-- Header Section -->
+    <div class="row mb-4">
+      <div class="col-12">
+        <div class="d-flex justify-content-between align-items-center">
+          <h1 class="display-5 text-light fw-bold mb-0">Movie Catalog</h1>
+          <a href="/add" class="btn btn-success btn-md">
+            <i class="bi bi-plus-circle me-2"></i>Add New Movie
+          </a>
+        </div>
+      </div>
+    </div>
+
+    <!-- Table Section -->
+    <div class="card bg-dark-subtle border-0 shadow-lg">
+      <div class="card-body p-0">
+        <div class="table-responsive">
+          <table class="table table-hover mb-0">
+            <thead class="table-dark">
+              <tr>
+                <th scope="col">Title</th>
+                <th scope="col">Synopsis</th>
+                <th scope="col">Year</th>
+                <th scope="col">Cover</th>
+                <th scope="col" class="text-end">Actions</th>
+              </tr>
+            </thead>
+            <tbody>
+              <tr *ngFor="let movie of movies">
+                <td class="align-middle fw-medium">{{ movie.title }}</td>
+                <td class="align-middle">{{ movie.synopsis }}</td>
+                <td class="align-middle">{{ movie.year }}</td>
+                <td class="align-middle">
+                  <img [src]="movie.cover" 
+                       [alt]="movie.title" 
+                       class="rounded shadow-sm" 
+                       width="50">
+                </td>
+                <td class="align-middle text-end">
+                  <div class="btn-group" role="group">
+                    <button 
+                      class="btn btn-outline-primary" 
+                      (click)="editMovie(movie)"
+                      title="Edit Movie">
+Editar                    </button>
+                    <button 
+                      class="btn btn-outline-danger" 
+                      (click)="deleteMovie(movie.id!)"
+                      title="Delete Movie">
+                      Borrar
+                    </button>
+                  </div>
+                </td>
+              </tr>
+            </tbody>
+          </table>
+        </div>
+      </div>
+    </div>
+
+    <!-- Empty State -->
+    <div *ngIf="movies.length === 0" class="text-center py-5">
+      <div class="card bg-dark-subtle border-0 shadow-lg">
+        <div class="card-body p-5">
+          <i class="bi bi-film display-1 text-muted mb-3"></i>
+          <h3 class="fw-bold mb-3">No Movies Found</h3>
+          <p class="text-muted mb-4">Your movie collection is empty. Start by adding some movies!</p>
+          <a routerLink="/add" class="btn btn-primary btn-lg px-4">
+            <i class="bi bi-plus-circle me-2"></i>Add Your First Movie
+          </a>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>

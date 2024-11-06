@@ -1,13 +1,48 @@
-<!doctype html>
-<html lang="en">
-<head>
-  <meta charset="utf-8">
-  <title>Frontend</title>
-  <base href="/">
-  <meta name="viewport" content="width=device-width, initial-scale=1">
-  <link rel="icon" type="image/x-icon" href="favicon.ico">
-</head>
-<body>
-  <app-root></app-root>
-</body>
+<!DOCTYPE html>
+<html lang="en" data-bs-theme="dark">
+  <head>
+    <meta charset="utf-8" />
+    <title>MovieFinder</title>
+    <base href="/" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <link rel="icon" type="image/x-icon" href="favicon.ico" />
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/css/bootstrap.min.css" rel="stylesheet" />
+    <style>
+      body {
+        margin: 0;
+        padding: 0;
+        min-height: 100vh;
+        background-image: url('https://upload.wikimedia.org/wikipedia/commons/thumb/9/93/Paris_arthouse_cinema_seats.jpg/1600px-Paris_arthouse_cinema_seats.jpg?20160206100141');
+        background-size: cover;
+        background-position: center;
+        background-repeat: no-repeat;
+      }
+    </style>
+  </head>
+  <body>
+    <div class="container">
+      <app-navbar></app-navbar>
+      
+      <main>
+          <app-root></app-root>
+      </main>
+
+    <footer>
+      <div class="card text-center">
+        <div class="card-header">
+          Conceptualización de servicios en la nube
+        </div>
+        <div class="card-body">
+          <h5 class="card-title">3.2. Sitio Web sencillo</h5>
+          <p class="card-text">Alumna: Fatima Sofia Gomez Mata</p>
+          <p class="card-text">Codigo: 221968595</p>
+          <p class="card-text">Asesor: Oscar Gregorio Silva Mares</p>
+        </div>
+        <div class="card-footer text-body-secondary">
+          <a class="card-text">fatima.gomez@udgvirtual.udg.mx</a>
+        </div>
+      </div>
+    </footer>
+    </div>
+  </body>
 </html>
