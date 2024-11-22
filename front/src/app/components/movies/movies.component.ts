@@ -33,6 +33,7 @@ export class MoviesComponent implements OnInit {
   }
 
   deleteMovie(id: number): void {
+    console.log('Deleting movie with id', id);
     this.data.deleteMovie(id).subscribe(
       () => {
         this.movies = this.movies.filter(movie => movie.id !== id);

@@ -5,12 +5,11 @@ import { movieResolver } from './resolvers/movie.resolver';
 import { HomeComponent } from './home/home.component';
 
 export const routes: Routes = [
-  { path: '', component: HomeComponent, pathMatch: 'full' },
+  { path: '', component: HomeComponent},
   { path: 'catalog', component: MoviesComponent },
   { path: 'add', component: AddFormComponent },
   { 
-    path: 'edit/:id', 
-    component: AddFormComponent,
+    path: 'edit/:id', component: AddFormComponent,
     resolve: { movie: movieResolver }
   }
 ];
